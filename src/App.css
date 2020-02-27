@@ -1,3 +1,6 @@
+body{
+  margin: 0;
+}
 html {
   width: 100%;
   height: 100%;
@@ -19,7 +22,7 @@ html {
 }
 
 .welcome {
-	background-image: linear-gradient(to right, green, rgba(150, 238, 150, 0.5));
+	background-image: linear-gradient(to bottom right, green, rgba(14,87, 14,0.5));
 	color: white;
 	display: flex;
 	align-items: center;
@@ -43,14 +46,20 @@ html {
 	background-color: white;
 	padding: 20px;
 	width: fit-content;
-	margin-left: 10px;
+  margin-left: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+.signInContainer:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 .signInForm {
 	display: flex;
 	align-items: center;
-	
+ 
 	flex-direction: column;
 }
+
 
 input[type=text] {
 	width: 100%;
@@ -78,7 +87,10 @@ input[type=submit] {
 	background-color: green;
 	color: white;
 	padding: 5px;
-	border-radius: 6px;
+  border-radius: 12px;
+  border-style: none;
+  width: 100%;
+  font-size: 16px;
 }
 a {
 	color: green;
@@ -87,4 +99,8 @@ a {
 label{
   text-align: left;
   display: inline-block;
+}
+
+input::placeholder{
+  font-size: 16px;
 }

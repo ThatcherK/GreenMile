@@ -15,7 +15,7 @@ export default function FirstPage() {
 				</div>
 				<div className="signFirstPage">
 					<SignIn/><br/>
-                    <label>Not yet a user?</label>
+                    <label>Not yet a user?</label><br/>
                     <a href="#">Sign Up</a>
 				</div>
 			</div>
