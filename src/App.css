@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+.firstpageContainer {
+	display: grid;
+	grid-template-columns: 60% 40%;
+	background-color: whitesmoke;
+	padding: 10px;
+  height: 600px;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.welcome {
+  background-image: linear-gradient(to right,green, yellow);
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  color:black;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+	align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 10px;
+}
+.signFirstPage{
+  display: flex;
+	align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: beige;
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.signInContainer{
+  display: flex;
+	align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color:white;
+  padding: 20px;
+  width: fit-content;
+  margin-left: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+h1{
+  font-weight: 600;
+  
 }
