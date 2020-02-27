@@ -3,7 +3,7 @@
 A react-based logistics web app.
 
 ## Set Up
-* Clone the project (<-- two spaces)
+* Clone the project \
 `https://github.com/ThatcherK/GreenMile.git`
 
 * Install dependencies \
