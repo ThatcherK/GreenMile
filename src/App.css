@@ -35,8 +35,22 @@
   width: fit-content;
   margin-left: 10px;
 }
-
+.signInForm{
+  display: flex;
+	align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=password]{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -49,4 +63,10 @@ input[type=text]{
 h1{
   font-weight: 600;
   
+}
+input[type=submit]{
+  background-color: green;
+  color:white;
+  padding: 5px;
+  border-radius: 6px;
 }
