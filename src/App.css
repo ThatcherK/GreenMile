@@ -1,72 +1,90 @@
+html {
+  width: 100%;
+  height: 100%;
+  clip: auto;
+  position: absolute;
+  overflow: hidden;
+  }
+.App{
+  font-family: Arial, Helvetica, sans-serif;
+}
 .firstpageContainer {
+	width: auto;
 	display: grid;
 	grid-template-columns: 60% 40%;
 	background-color: whitesmoke;
-	padding: 10px;
-  height: 600px;
-  
+  height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
 .welcome {
-  background-image: linear-gradient(to right,green, yellow);
+	background-image: linear-gradient(to right, green, rgba(150, 238, 150, 0.5));
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+}
+.signFirstPage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	background-color: rgba(0, green, 0, 0);
+	flex-direction: column;
+}
 
-  color:black;
-  display: flex;
+.signInContainer {
+	display: flex;
 	align-items: center;
-  justify-content: center;
-  padding: 10px;
+	justify-content: center;
+	border-radius: 5px;
+	background-color: white;
+	padding: 20px;
+	width: fit-content;
+	margin-left: 10px;
 }
-.signFirstPage{
-  display: flex;
+.signInForm {
+	display: flex;
 	align-items: center;
-  justify-content: center;
-  padding: 10px;
-  background-color: beige;
-  flex-direction: column;
+	
+	flex-direction: column;
 }
 
-.signInContainer{
-  display: flex;
-	align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  background-color:white;
-  padding: 20px;
-  width: fit-content;
-  margin-left: 10px;
+input[type=text] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
 }
-.signInForm{
-  display: flex;
-	align-items: center;
-  justify-content: center;
-  flex-direction: column;
+input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
 }
-input[type=text]{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+
+h1 {
+	font-weight: 600;
+}
+input[type=submit] {
+	background-color: green;
+	color: white;
+	padding: 5px;
+	border-radius: 6px;
+}
+a {
+	color: green;
+	font-weight: bold;
+}
+label{
+  text-align: left;
   display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-input[type=password]{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-h1{
-  font-weight: 600;
-  
-}
-input[type=submit]{
-  background-color: green;
-  color:white;
-  padding: 5px;
-  border-radius: 6px;
 }

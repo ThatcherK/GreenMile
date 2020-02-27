@@ -5,7 +5,7 @@ import FirstPage from './components/FirstPage'
 
 function App() {
   return (
-    <div >
+    <div className="App">
       <FirstPage/>
     </div>
   );
