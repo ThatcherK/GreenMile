@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import SignIn from './SignIn';
 import '../App.css';
 import SignUp from './SignUp';
+import { authContext } from './context/Authenticate';
+// import Admin from './Admin';
+import { Redirect } from 'react-router-dom';
 
 export default function FirstPage() {
 	const [ show, setShow ] = useState(false);
+	const { isloggedIn} = useContext(authContext)
+
+	if (!isloggedIn) {
+		return <Redirect to="/admin" />
+	}
 
 	return (
 		<div>
@@ -20,9 +28,7 @@ export default function FirstPage() {
 							<i className="fas fa-hourglass-half" /> Timely
 						</h2>
 
-						<h2>
-							<i>"Let Us Take The Weight Off Your Shoulders!!!"</i>{' '}
-						</h2>
+						<h3>"Let Us Take The Weight Off Your Shoulders!!!" </h3>
 					</div>
 				</div>
 				{show === false && (
