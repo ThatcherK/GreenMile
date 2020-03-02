@@ -3,7 +3,7 @@ import SignIn from './SignIn';
 import '../App.css';
 import SignUp from './SignUp';
 import { authContext } from './context/Authenticate';
-// import Admin from './Admin';
+
 import { Redirect } from 'react-router-dom';
 
 export default function FirstPage() {

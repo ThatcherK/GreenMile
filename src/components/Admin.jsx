@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AdminNav from './routes/adminNav';
-// import Logo from './images/greenmile.jpeg';
+import Logo from './images/greenmile.png';
 
 export default function Admin() {
 	
@@ -10,7 +10,7 @@ export default function Admin() {
 			<div className="sideBar">
 				<div>
 					<div className="header">
-						<i className="fas fa-user-tie fa-2x" />Kaliisa Admin
+						<i className="fas fa-user-tie fa-3x" /><div><p>Kaliisa<br></br>Admin</p></div>
 					</div>
 				</div>
 				<div className="menu">
@@ -35,7 +35,7 @@ export default function Admin() {
 			</div>
 			<div className="otherPage">
 				<div className="topBar">
-					{/* <img src={Logo} alt="greenmile-logo"/> */}
+					<img src={Logo} alt="greenmile-logo"/>
 					<button className="logOutBtn">Log Out</button>
 				</div>
 				<div className="shopFloor">

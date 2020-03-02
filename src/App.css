@@ -141,42 +141,7 @@ input::placeholder{
   flex-direction: column;
 }
 
-.sidenav {
-	height: 100%;
-	width: 250px;
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	background-image: linear-gradient(to bottom right, green, rgba(14,87, 14,0.5));
-	overflow-x: hidden;
-	transition: 0.5s;
-	padding-top: 60px;
-  }
-  
-  .sidenav a {
-	padding: 8px 8px 8px 32px;
-	text-decoration: none;
-	font-size: 25px;
-	color: white;
-	display: block;
-	transition: 0.3s;
-  }
-  
-  .sidenav a:hover {
-	color: #818181;
-  }
-  .sidenav .closebtn {
-	position: absolute;
-	top: 0;
-	right: 25px;
-	font-size: 36px;
-	margin-left: 50px;
-  }
-  @media screen and (max-height: 450px) {
-	.sidenav {padding-top: 15px;}
-	.sidenav a {font-size: 18px;}
-  }  
+
 
   .myCards{
 	  display: flex;
@@ -209,6 +174,7 @@ input::placeholder{
 	  flex-direction: column;
 	  justify-content: flex-start;
 	  padding: 10px;
+	  box-shadow: 10px 4px 8px 0 rgba(0, 0, 0, 0.2);
 	 
   }
 
@@ -221,17 +187,23 @@ input::placeholder{
 	background-color:rgb(50, 168, 82);
 	display: flex;
 	padding :5px;
-	justify-content: flex-end;
+	align-content: center;
+	justify-content: center;
   }
   .shopFloor{
-
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	padding: 5px;
   }
   .header{
+	  display: flex;
 	background-color: white;
 	width: 100%;
 	padding: 5px;
 	border-radius: 4px;
 	margin: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .menu{
 	display: flex;
@@ -240,7 +212,7 @@ input::placeholder{
 	justify-content: center;
 }
 .menuTitle{
-	background-color: black;
+	background-color: rgb(82, 79, 72);
 	color: white;
 	padding: 10px;
 	border-radius: 4px;
@@ -255,7 +227,7 @@ input::placeholder{
 	border-radius: 4px;
 	margin: 5px;
 	align-items: center;
-	
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .menuList div{
 	margin: 5px;
@@ -265,7 +237,6 @@ input::placeholder{
 	
 }
 .menuList div:hover{
-	/* background-color: gainsboro; */
 	background-color: whitesmoke;
 }
 .menuList div a{
@@ -277,7 +248,7 @@ input::placeholder{
 	height: 100%;
 }
 .logOutBtn{
-	background-color: rgb(16, 17, 16);
+	background-color: rgb(82, 79, 72);
 	color: white;
 	padding: 5px;
   border-radius: 6px;
@@ -285,4 +256,9 @@ input::placeholder{
   width: 70px;
   font-size: 12px;
   height: 40px;
+  position: relative;
+  left: 300px;
+}
+i{
+	margin:10px;
 }
