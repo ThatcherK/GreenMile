@@ -8,10 +8,10 @@ import { Redirect } from 'react-router-dom';
 
 export default function FirstPage() {
 	const [ show, setShow ] = useState(false);
-	const { isloggedIn} = useContext(authContext)
+	const { isloggedIn } = useContext(authContext);
 
-	if (!isloggedIn) {
-		return <Redirect to="/admin" />
+	if (isloggedIn) {
+		return <Redirect to="/" />;
 	}
 
 	return (

@@ -205,7 +205,7 @@ input::placeholder{
   }
   .sideBar{
 	  display: flex;
-	  background-color:rgb(237, 250, 238);
+	  background-color:whitesmoke;
 	  flex-direction: column;
 	  justify-content: flex-start;
 	  padding: 10px;
@@ -265,7 +265,12 @@ input::placeholder{
 	
 }
 .menuList div:hover{
-	background-color: gainsboro;
+	/* background-color: gainsboro; */
+	background-color: whitesmoke;
+}
+.menuList div a{
+	text-decoration: none;
+	color: black;
 }
 .image{
 	width: 100%;

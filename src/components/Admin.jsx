@@ -1,6 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import AdminNav from './routes/adminNav';
+// import Logo from './images/greenmile.jpeg';
 
 export default function Admin() {
+	
 	return (
 		<div className="dashboard">
 			<div className="sideBar">
@@ -15,25 +19,28 @@ export default function Admin() {
 					</div>
 					<div className="menuList">
 						<div>
-							View Suppliers
+							<Link to="/suppliers">View Suppliers</Link>
 						</div>
 						<div>
-							<span>Add Users</span>
+							<Link to="/create-user">Add Users</Link>
 						</div>
 						<div>
-							<span>Pending Invoices</span>
+							<Link to="/invoices">Pending Invoices</Link>
 						</div>
 						<div>
-							<span>Packages</span>
+							<Link to="packages">Packages</Link>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="otherPage">
-				<div className="topBar" >
+				<div className="topBar">
+					{/* <img src={Logo} alt="greenmile-logo"/> */}
 					<button className="logOutBtn">Log Out</button>
 				</div>
-				<div className="shopFloor" />
+				<div className="shopFloor">
+					<AdminNav />
+				</div>
 			</div>
 		</div>
 		// <div className="myCards">
