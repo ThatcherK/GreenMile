@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { authContext } from './context/Authenticate';
+import { authContext } from '../context/Authenticate';
 
 export default function SignUp() {
 	const { setLogIn } = useContext(authContext);

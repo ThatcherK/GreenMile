@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
-import SignIn from './SignIn';
+import SignIn from './forms/SignIn';
 import '../App.css';
-import SignUp from './SignUp';
+import SignUp from './forms/SignUp';
 import { authContext } from './context/Authenticate';
 
 import { Redirect } from 'react-router-dom';
 
-export default function FirstPage() {
+export default function WelcomePage() {
 	const [ show, setShow ] = useState(false);
 	const { isloggedIn } = useContext(authContext);
 

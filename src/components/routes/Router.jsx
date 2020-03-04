@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import FirstPage from '../FirstPage';
+import WelcomePage from '../WelcomePage';
 import Admin from '../Admin';
 import PrivateRoute from './PrivateRoute';
 
@@ -8,7 +8,8 @@ import PrivateRoute from './PrivateRoute';
 export default function Router() {
 	return (
 		<Switch>
-			<Route exact path="/login" component={FirstPage} />
+			<Route exact path="/login" component={WelcomePage} />
+			
 			<PrivateRoute path="/" component={Admin} />
 		</Switch>
 	);
