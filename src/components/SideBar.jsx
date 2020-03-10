@@ -15,16 +15,16 @@ const SideBar=() =>{
 					</div>
 					<div className="menuList">
 						<div>
-							<Link to="/suppliers">View Suppliers</Link>
+							<Link to="/suppliers">Suppliers</Link>
 						</div>
 						<div>
-							<Link to="/create-user">Add Users</Link>
+							<Link to="/hub-managers">Hub Managers</Link>
 						</div>
 						<div>
-							<Link to="/invoices">Pending Invoices</Link>
+							<Link to="/invoices">Invoices</Link>
 						</div>
 						<div>
-							<Link to="packages">Packages</Link>
+							<Link to="loaders">Loaders</Link>
 						</div>
 					</div>
 				</div>

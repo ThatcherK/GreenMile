@@ -11,7 +11,7 @@ export default function Admin() {
 			<SideBar/>
 			<div className="otherPage">
 				<div className="topBar">
-					<img src={Logo} alt="greenmile-logo"/>
+					{/* <img src={Logo} alt="greenmile-logo"/> */}
 					<button className="logOutBtn">Log Out</button>
 				</div>
 				<div className="shopFloor">

@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function SignOut() {
+const HubManagerList=() =>{
     return (
         <div>
             
         </div>
     )
 }
+export default HubManagerList;

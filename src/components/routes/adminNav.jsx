@@ -1,19 +1,18 @@
 import React from 'react';
-import { Switch} from 'react-router-dom';
-import Supplier from '../Supplier';
-import UserForm from '../forms/UserForm';
+import { Switch } from 'react-router-dom';
+import SupplierList from '../suppliers/SupplierList';
 import Invoice from '../Invoice';
-import Packages from '../Packages';
-import PrivateRoute from './PrivateRoute'
+import PrivateRoute from './PrivateRoute';
+import HubManagerList from '../hubManagers/HubManagerList';
+import LoadersList from '../loaders/LoadersList';
+
 export default function AdminNav() {
 	return (
-		
 		<Switch>
-			<PrivateRoute path="/suppliers" component={Supplier} />
-			<PrivateRoute path="/create-user" component={UserForm} />
+			<PrivateRoute path="/suppliers" component={SupplierList} />
+			<PrivateRoute path="/hub-managers" component={HubManagerList} />
 			<PrivateRoute path="/invoices" component={Invoice} />
-			<PrivateRoute path="/packages" component={Packages} />
+			<PrivateRoute path="/loaders" component={LoadersList} />
 		</Switch>
-		
 	);
 }
