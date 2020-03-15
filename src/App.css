@@ -15,9 +15,9 @@ body {
 html {
 	width: 100%;
 	height: 100%;
-	clip: auto;
+	/* clip: auto;
 	position: absolute;
-	overflow: hidden;
+	overflow: hidden; */
 }
 .App {
 	font-family: Arial, Helvetica, sans-serif;
@@ -195,7 +195,7 @@ input::placeholder {
 .otherPage {
 	display: grid;
 	background-color: white;
-	grid-template-rows: 10% 90%;
+	grid-template-rows: 5% 95%;
 }
 .topBar {
 	background-color: var(--dark-primary-color);
@@ -214,6 +214,7 @@ input::placeholder {
 .shopFloor i {
 	margin: 10px;
 	color: var(--primary-text);
+	/* position: relative; */
 }
 .header {
 	display: flex;
@@ -248,13 +249,13 @@ input::placeholder {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	/* background-color:var(--primary-color); */
+	
 	color: var(--primary-text);
 	padding: 10px;
 	border-radius: 4px;
 	margin: 5px;
 	align-items: center;
-	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+	
 }
 .menuList div {
 	margin: 5px;
@@ -267,7 +268,7 @@ input::placeholder {
 .menuList div:hover {
 	background-color: var(--divider-color);
 }
-.menuList div a {
+.menu div a {
 	text-decoration: none;
 	color: black;
 }
@@ -293,7 +294,7 @@ input::placeholder {
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	padding: 50px;
-
+	/* position:relative; */
 	align-items: flex-start;
 	width: 800px;
 }
@@ -304,11 +305,20 @@ input::placeholder {
 	text-align: center;
 	background-color: #e6ffe6;
 	margin: 5px;
-
+	color: var(--primary-text);
 	border-radius: 4px;
+	/* position: absolute; */
 }
+
 .supplierList div:hover {
-	background-color: var(--primary-color);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.supplierList button{
+	color: var(--primary-text);
+	border-style: none;
+	background-color: Transparent;
+	cursor:pointer;
+	outline:none;
 }
 .addSupplierbtn {
 	margin: 5px;
@@ -326,3 +336,23 @@ input::placeholder {
 	width: 350px;
 	height: 20px;
 }
+.pie {
+	/* display: inline-block;
+	vertical-align: middle;
+	  transform-origin: 50% 50%;
+	  animation: scale .6s;
+	margin: 10px; */
+  }
+  svg {
+	display: inline-block;
+	vertical-align: middle;
+	  transform-origin: 50% 50%;
+	  animation: scale .6s;
+	margin: 10px;
+	  
+	text {
+	  font-family: Helvetica, Arial, sans-serif;
+	  font-weight: bolder;
+	  font-size: 12px;
+	}
+  }

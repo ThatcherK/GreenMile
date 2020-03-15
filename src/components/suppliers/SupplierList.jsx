@@ -1,27 +1,79 @@
 import React from 'react';
+import Graph from '../Graph';
 
 const SupplierList = () => {
 	return (
 		<div>
 			<div className="searchnAdd">
 				<div>
-					<i class="fas fa-search" />
+					<i className="fas fa-search" />
 					<input type="text" />
 				</div>
 				<button className="addSupplierbtn">Add Supplier</button>
 			</div>
 			<div className="supplierList">
-				<div>
+				<div className="pie">
 					Hashra Investments<br />
-					<button>Delete</button>
+					<Graph />
+					<button className="signUpBtn">Contact Info</button>
+					<br />
+					<button>
+						<i className="fas fa-trash-alt fa-2x" />
+					</button>
 				</div>
 				<div>
 					Ganghli Industrial<br />
-					<button>Delete</button>
+					<Graph />
+					<button className="signUpBtn">Contact Info</button>
+					<br />
+					<button>
+						<i className="fas fa-trash-alt fa-2x" />
+					</button>
 				</div>
 				<div>
 					Industrial parts<br />
-					<button>Delete</button>
+					<Graph />
+					<button className="signUpBtn">Contact Info</button>
+					<br />
+					<button>
+						<i className="fas fa-trash-alt fa-2x" />
+					</button>
+				</div>
+				<div>
+					Industrial parts<br />
+					<Graph />
+					<button className="signUpBtn">Contact Info</button>
+					<br />
+					<button>
+						<i className="fas fa-trash-alt fa-2x" />
+					</button>
+				</div>
+				<div>
+					Industrial parts<br />
+					<Graph />
+					<button className="signUpBtn">Contact Info</button>
+					<br />
+					<button>
+						<i className="fas fa-trash-alt fa-2x" />
+					</button>
+				</div>
+				<div>
+					Industrial parts<br />
+					<Graph />
+					<button className="signUpBtn">Contact Info</button>
+					<br />
+					<button>
+						<i className="fas fa-trash-alt fa-2x" />
+					</button>
+				</div>
+				<div>
+					Industrial parts<br />
+					<Graph />
+					<button className="signUpBtn">Contact Info</button>
+					<br />
+					<button>
+						<i className="fas fa-trash-alt fa-2x" />
+					</button>
 				</div>
 			</div>
 		</div>

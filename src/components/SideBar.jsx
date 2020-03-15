@@ -11,7 +11,7 @@ const SideBar=() =>{
 				</div>
 				<div className="menu">
 					<div className="menuTitle">
-						<i class="fas fa-home" />Dash Board
+						<i className="fas fa-home" /><Link to="dashboard">Dash Board</Link>
 					</div>
 					<div className="menuList">
 						<div>

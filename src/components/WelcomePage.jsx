@@ -8,10 +8,24 @@ import { Redirect } from 'react-router-dom';
 
 export default function WelcomePage() {
 	const [ show, setShow ] = useState(false);
-	const { isloggedIn } = useContext(authContext);
+	const { isloggedIn, code } = useContext(authContext);
+	console.log(isloggedIn);
+	console.log(code);
 
 	if (isloggedIn) {
-		return <Redirect to="/" />;
+		console.log(code);
+		switch (code) {
+			case 0:
+				return <Redirect to="/" />;
+
+			case 1:
+				return <Redirect to="/supplier" />;
+
+			case 2:
+				return <Redirect to="/hubManager" />;
+			case 3:
+				return <Redirect to="/loader" />;
+		}
 	}
 
 	return (
