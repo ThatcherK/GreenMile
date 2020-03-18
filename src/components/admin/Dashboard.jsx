@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Supplier() {
+export default function Dashboard() {
     return (
         <div>
             
