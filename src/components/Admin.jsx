@@ -1,10 +1,9 @@
 import React from 'react'
 
-const  LoadersList=()=> {
+export default function Admin() {
     return (
         <div>
             
         </div>
     )
 }
-export default LoadersList;
