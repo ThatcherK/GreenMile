@@ -10,7 +10,7 @@ import Dashboard from '../admin/Dashboard';
 export default function AdminNav() {
 	return (
 		<Switch>
-			<PrivateRoute path="dashboard" component={Dashboard} />
+			<PrivateRoute path="/" component={Dashboard} />
 			<PrivateRoute path="/suppliers" component={SupplierList} />
 			<PrivateRoute path="/hub-managers" component={HubManagerList} />
 			<PrivateRoute path="/invoices" component={Invoice} />
