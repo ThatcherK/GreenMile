@@ -25,6 +25,8 @@ export default function WelcomePage() {
 				return <Redirect to="/hubManager" />;
 			case 3:
 				return <Redirect to="/loader" />;
+			default:
+				return <Redirect to="login"/>
 		}
 	}
 
