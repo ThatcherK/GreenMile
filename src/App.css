@@ -1,30 +1,48 @@
-html {
-  width: 100%;
-  height: 100%;
-  clip: auto;
-  position: absolute;
-  overflow: hidden;
+body {
+	margin: 0;
+}
+:root {
+	--dark-primary-color: #388E3C;
+	--primary-color:#4CAF50;
+	--light-primary-color:#C8E6C9;
+	--accent-color:#8BC34A;
+	--primary-text:#212121;
+	--secondary-text:#757575;
+	--text-icons:#FFFFFF;
+	--divider-color:#BDBDBD;
+
   }
-.App{
-  font-family: Arial, Helvetica, sans-serif;
+html {
+	width: 100%;
+	height: 100%;
+	/* clip: auto;
+	position: absolute;
+	overflow: hidden; */
+}
+.App {
+	font-family: Arial, Helvetica, sans-serif;
 }
 .firstpageContainer {
 	width: auto;
 	display: grid;
 	grid-template-columns: 60% 40%;
+	grid-template-rows: 100%;
 	background-color: whitesmoke;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
 }
 
 .welcome {
-	background-image: linear-gradient(to right, green, rgba(150, 238, 150, 0.5));
+	background-image: linear-gradient(to bottom right, green, rgba(14, 87, 14, 0.5));
 	color: white;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 10px;
+}
+.welcomeContent > div {
+	display: flex;
 }
 .signFirstPage {
 	display: flex;
@@ -42,27 +60,44 @@ html {
 	border-radius: 5px;
 	background-color: white;
 	padding: 20px;
-	width: fit-content;
+	width: 70%;
+	height: 70%;
 	margin-left: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+}
+.signInContainer:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 .signInForm {
 	display: flex;
 	align-items: center;
-	
 	flex-direction: column;
 }
 
-input[type=text] {
-	width: 100%;
+.signUpContainer input {
+	width: 80%;
 	padding: 12px 20px;
 	margin: 8px 0;
 	display: inline-block;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
+	font-size: 18px;
 }
+.signInContainer input {
+	width: 80%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: 18px;
+}
+
 input[type=password] {
-	width: 100%;
+	width: 120%;
 	padding: 12px 20px;
 	margin: 8px 0;
 	display: inline-block;
@@ -74,17 +109,250 @@ input[type=password] {
 h1 {
 	font-weight: 600;
 }
-input[type=submit] {
+.authBtn {
 	background-color: green;
 	color: white;
 	padding: 5px;
-	border-radius: 6px;
+	border-radius: 12px;
+	border-style: none;
+	width: 120%;
+	font-size: 16px;
+	height: 40px;
 }
-a {
+
+.signUpBtn {
+	background: none !important;
+	border: none;
+	padding: 0 !important;
 	color: green;
+	text-decoration: underline;
+	cursor: pointer;
 	font-weight: bold;
+	font-size: 16px;
 }
-label{
-  text-align: left;
-  display: inline-block;
+
+label {
+	text-align: left;
+	display: inline-block;
 }
+
+input::placeholder {
+	font-size: 16px;
+}
+
+.signUpContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	background-color: white;
+	padding: 20px;
+	width: 70%;
+	height: 70%;
+	margin-left: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+}
+.signUpContainer:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.signUpForm {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.myCards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	padding: 50px;
+
+	align-items: flex-start;
+}
+.myCards > div {
+	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+	width: 20%;
+	height: 100%;
+	padding: 16px;
+	text-align: center;
+	background-color:var(--light-primary-color);
+	margin: 5px;
+}
+.dashboard {
+	display: grid;
+	grid-template-columns: 20% 80%;
+	height: 100vh;
+}
+.sideBar {
+	display: flex;
+	background-color: var(--light-primary-color);
+	flex-direction: column;
+	justify-content: flex-start;
+	padding: 10px;
+}
+
+.otherPage {
+	display: grid;
+	background-color: white;
+	grid-template-rows: 5% 95%;
+}
+.topBar {
+	background-color: var(--dark-primary-color);
+	/* background-image: linear-gradient(to bottom right, green, rgba(14, 87, 14, 0.5)); */
+	display: flex;
+	padding: 5px;
+	align-content: center;
+	justify-content: center;
+}
+.shopFloor {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	padding: 5px;
+}
+.shopFloor i {
+	margin: 10px;
+	color: var(--primary-text);
+	/* position: relative; */
+}
+.header {
+	display: flex;
+	background-color: var(--primary-color);
+	color: var(--text-icons);
+	width: 90%;
+	padding: 5px;
+	border-radius: 4px;
+	margin: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.header i{
+	color: var(--text-icons);
+	margin: 10px;
+}
+.menu {
+	display: flex;
+	flex-direction: column;
+	margin: 5px;
+	justify-content: center;
+	background-color: var(--primary-color);
+	border-radius: 4px;
+}
+.menuTitle {
+	background-color: var(--dark-primary-color);
+	color: var(--text-icons);
+	padding: 10px;
+	border-radius: 4px;
+	margin: 5px;
+}
+.menuList {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	
+	color: var(--primary-text);
+	padding: 10px;
+	border-radius: 4px;
+	margin: 5px;
+	align-items: center;
+	
+}
+.menuList div {
+	margin: 5px;
+	height: 40px;
+	padding: 5px;
+	width: 100%;
+	border-radius: 4px;
+	background-color: var(--light-primary-color);
+}
+.menuList div:hover {
+	background-color: var(--divider-color);
+}
+.menu div a {
+	text-decoration: none;
+	color: black;
+}
+.image {
+	width: 100%;
+	height: 100%;
+}
+.logOutBtn {
+	background-color: var(--accent-color);
+	color: white;
+	padding: 5px;
+	border-radius: 6px;
+	border-style: none;
+	width: 70px;
+	font-size: 12px;
+	height: 40px;
+	position: relative;
+	left: 500px;
+}
+
+.supplierList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	padding: 50px;
+	/* position:relative; */
+	align-items: flex-start;
+	width: 800px;
+}
+.supplierList div {
+	width: 20%;
+	height: 100%;
+	padding: 16px;
+	text-align: center;
+	background-color: #e6ffe6;
+	margin: 5px;
+	color: var(--primary-text);
+	border-radius: 4px;
+	/* position: absolute; */
+}
+
+.supplierList div:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.supplierList button{
+	color: var(--primary-text);
+	border-style: none;
+	background-color: Transparent;
+	cursor:pointer;
+	outline:none;
+}
+.addSupplierbtn {
+	margin: 5px;
+	padding: 10px;
+	background-color: var(--accent-color);
+	border-radius: 4px;
+	border-style: none;
+	color: var(--text-icons);
+}
+.searchnAdd {
+	display: flex;
+	justify-content: space-between;
+}
+.searchnAdd input {
+	width: 350px;
+	height: 20px;
+}
+.pie {
+	/* display: inline-block;
+	vertical-align: middle;
+	  transform-origin: 50% 50%;
+	  animation: scale .6s;
+	margin: 10px; */
+  }
+  svg {
+	display: inline-block;
+	vertical-align: middle;
+	  transform-origin: 50% 50%;
+	  animation: scale .6s;
+	margin: 10px;
+	  
+	text {
+	  font-family: Helvetica, Arial, sans-serif;
+	  font-weight: bolder;
+	  font-size: 12px;
+	}
+  }
