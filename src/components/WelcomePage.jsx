@@ -14,20 +14,7 @@ export default function WelcomePage() {
 
 	if (isloggedIn) {
 		console.log(code);
-		switch (code) {
-			case 0:
-				return <Redirect to="/" />;
-
-			case 1:
-				return <Redirect to="/supplier" />;
-
-			case 2:
-				return <Redirect to="/hubManager" />;
-			case 3:
-				return <Redirect to="/loader" />;
-			default:
-				return <Redirect to="login"/>
-		}
+		return <Redirect to ="/"/>
 	}
 
 	return (
