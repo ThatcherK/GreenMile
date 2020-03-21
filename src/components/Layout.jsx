@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import SideBar from './SideBar';
+import SideBar from './admin/SideBar';
 import SupplierSideBar from './suppliers/SupplierSideBar';
 import AdminNav from './routes/adminNav';
 import SupplierNav from './routes/SupplierNav';

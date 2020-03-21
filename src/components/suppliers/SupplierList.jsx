@@ -2,7 +2,6 @@ import React from 'react';
 import Graph from '../Graph';
 
 const SupplierList = () => {
-	console.log("supplierlist component");
 	return (
 		<div>
 			<div className="searchnAdd">

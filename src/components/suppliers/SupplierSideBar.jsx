@@ -11,7 +11,7 @@ export default function SupplierSideBar() {
 				</div>
 				<div className="menu">
 					<div className="menuTitle">
-						<i className="fas fa-home" /><Link to="dashboard">Dash Board</Link>
+						<i className="fas fa-home" /><Link to="/">Dash Board</Link>
 					</div>
 					<div className="menuList">
 						<div>
