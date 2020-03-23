@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 import SideBar from './admin/SideBar';
 import SupplierSideBar from './suppliers/SupplierSideBar';
 import AdminNav from './routes/adminNav';
@@ -9,9 +10,8 @@ import { authContext } from './context/Authenticate';
 import HubManagerSideBar from './hubManagers/HubManagerSideBar';
 import LoaderSideBar from './loaders/LoaderSideBar';
 
-
 const Layout = () => {
-    const { isloggedIn, code } = useContext(authContext);
+    const { isloggedIn, code,setLogIn } = useContext(authContext);
 	const showSideBar = () => {
 		if (isloggedIn) {
 			switch (code) {
@@ -47,12 +47,18 @@ const Layout = () => {
 		}
 	};
 
+	const logOut =()=>{
+		
+		setLogIn(false);
+		return <Redirect to="/login"/>
+	}
+
 	return (
 		<div className="dashboard">
 			{showSideBar()}
 			<div className="otherPage">
 				<div className="topBar">
-					<button className="logOutBtn">Log Out</button>
+					<button className="logOutBtn" onClick={()=>logOut()}>Log Out</button>
 				</div>
 				<div className="shopFloor">{showNavigation()}</div>
 			</div>
