@@ -8,24 +8,9 @@ import { Redirect } from 'react-router-dom';
 
 export default function WelcomePage() {
 	const [ show, setShow ] = useState(false);
-	const { isloggedIn, code } = useContext(authContext);
-	console.log(isloggedIn);
-	console.log(code);
-
+	const { isloggedIn } = useContext(authContext);
 	if (isloggedIn) {
-		console.log(code);
-		switch (code) {
-			case 0:
-				return <Redirect to="/" />;
-
-			case 1:
-				return <Redirect to="/supplier" />;
-
-			case 2:
-				return <Redirect to="/hubManager" />;
-			case 3:
-				return <Redirect to="/loader" />;
-		}
+		return <Redirect to="/" />;
 	}
 
 	return (
@@ -51,7 +36,7 @@ export default function WelcomePage() {
 						<br />
 					</div>
 				)}
-				<div className="signFirstPage">{show === true && <SignUp />}</div>
+				<div className="signFirstPage">{show === true && <SignUp hideSignUp={() => setShow(false)} />}</div>
 			</div>
 		</div>
 	);

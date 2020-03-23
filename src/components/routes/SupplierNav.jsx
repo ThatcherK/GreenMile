@@ -1,3 +1,4 @@
+
 import React from 'react';
 import PrivateRoute from './PrivateRoute';
 import { Switch } from 'react-router-dom';
@@ -15,4 +16,5 @@ export default function SupplierNav() {
 		
 		</Switch>
 	);
+
 }
