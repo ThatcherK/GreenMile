@@ -1,7 +1,9 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Graph from '../Graph';
+import UserForm from '../forms/UserForm'
 
 const SupplierList = () => {
+	const [view,setView] = useState(false)
 	return (
 		<div>
 			<div className="searchnAdd">
@@ -9,7 +11,8 @@ const SupplierList = () => {
 					<i className="fas fa-search" />
 					<input type="text" />
 				</div>
-				<button className="addSupplierbtn">Add Supplier</button>
+				<button className="addSupplierbtn" onClick={()=>setView(true)}>Add Supplier</button>
+				{(view)?<UserForm setView={setView}/>:null}
 			</div>
 			<div className="supplierList">
 				<div className="pie">
