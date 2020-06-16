@@ -1,20 +1,18 @@
 import React, { useContext } from 'react';
 import { authContext } from '../context/Authenticate';
+import axios from 'axios';
 
 export default function SignUp(props) {
 	const {
-		users,
 		setCode,
-		code,
+		invite_code,
 		setName,
 		name,
 		setEmail,
 		email,
 		setNumber,
-		number,
 		setPassword,
 		password,
-		setUser
 	} = useContext(authContext);
 
 	const getInput = (event) => {
@@ -32,7 +30,7 @@ export default function SignUp(props) {
 				setPassword(event.target.value);
 				break;
 			case 'invite-code':
-				setCode(Number(event.target.value));
+				setCode(event.target.value);
 				break;
 			default:
 				return null;
@@ -41,7 +39,14 @@ export default function SignUp(props) {
 
 	const addUser = (e) => {
 		e.preventDefault();
-		setUser([ ...users, { code, name, email, password, number } ]);
+		const data = { name:name, email:email, password:password,invite_code:invite_code};
+		axios.post('http://127.0.0.1:5000/users', data)
+		.then((response) => { 
+			return response.data
+		})
+		.catch((err) =>{
+			return err
+		} );
 		props.hideSignUp();
 	};
 

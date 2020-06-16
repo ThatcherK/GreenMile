@@ -1,3 +1,4 @@
+
 import React, { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import SideBar from './admin/SideBar';
@@ -11,19 +12,19 @@ import HubManagerSideBar from './hubManagers/HubManagerSideBar';
 import LoaderSideBar from './loaders/LoaderSideBar';
 
 const Layout = () => {
-    const { isloggedIn, code,setLogIn } = useContext(authContext);
+	const { isloggedIn, role,setLogIn } = useContext(authContext);
 	const showSideBar = () => {
 		if (isloggedIn) {
-			switch (code) {
-				case 0:
+			switch (role) {
+				case 'admin':
 					return <SideBar />;
 
-				case 1:
+				case 'supplier' :
 					return <SupplierSideBar />;
 
-				case 2:
+				case 'hub_manager':
 					return <HubManagerSideBar />;
-				case 3:
+				case 'packager':
 					return <LoaderSideBar />;
 				default:
 					return <div />;
@@ -31,16 +32,16 @@ const Layout = () => {
 		}
 	};
 	const showNavigation = () => {
-		switch (code) {
-			case 0:
+		switch (role) {
+			case 'admin':
 				return <AdminNav />;
 
-			case 1:
+			case 'supplier':
 				return <SupplierNav />;
 
-			case 2:
+			case 'hub_manager':
 				return <HubManagerNav />;
-			case 3:
+			case 'packager':
 				return <LoaderNav />;
 			default:
 				return <div />;

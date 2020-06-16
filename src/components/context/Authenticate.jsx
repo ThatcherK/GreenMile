@@ -3,18 +3,20 @@ import React, { useState, createContext } from 'react';
 export const authContext = createContext();
 const Authenticate = (props) => {
 	const [ isloggedIn, setLogIn ] = useState(false);
-	const [ code, setCode ] = useState(null);
+	const [ invite_code, setCode ] = useState(null);
 	const [ name, setName ] = useState(null);
 	const [ email, setEmail ] = useState(null);
 	const [ number, setNumber ] = useState(null);
 	const [ password, setPassword ] = useState(null);
 	const [ users, setUser ] = useState([]);
+	const [role, setRole] = useState(null)
+	const [authToken,setToken] = useState(null)
 	return (
 		<authContext.Provider
 			value={{
 				isloggedIn,
 				setLogIn,
-				code,
+				invite_code,
 				setCode,
 				name,
 				setName,
@@ -25,7 +27,11 @@ const Authenticate = (props) => {
 				password,
 				setPassword,
 				users,
-				setUser
+				setUser,
+				role,
+				setRole,
+				authToken,
+				setToken
 			}}
 		>
 			{props.children}

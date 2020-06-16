@@ -5,5 +5,4 @@ const LoaderSideBar =()=>{
         <div></div>
     )
 }
-
 export default LoaderSideBar;

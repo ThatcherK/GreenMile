@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const LoaderNav =()=>{
@@ -5,5 +6,4 @@ const LoaderNav =()=>{
         <div></div>
     )
 }
-
 export default LoaderNav;
