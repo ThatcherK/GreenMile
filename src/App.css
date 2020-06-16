@@ -197,15 +197,25 @@ input::placeholder {
 .otherPage {
 	display: grid;
 	background-color: white;
-	grid-template-rows: 5% 95%;
+	grid-template-rows: 10% 95%;
+	/* width: auto; */
 }
 .topBar {
 	background-color: var(--dark-primary-color);
-	/* background-image: linear-gradient(to bottom right, green, rgba(14, 87, 14, 0.5)); */
+	display: grid;
+	grid-template-columns: 50% 50%;
+	align-items: center;
+}
+.title {
 	display: flex;
-	padding: 5px;
-	align-content: center;
-	justify-content: center;
+	justify-content: flex-start;
+	font-size: 30px;
+	color: var(--text-icons);
+}
+.logOut {
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 20px;
 }
 .shopFloor {
 	display: flex;
@@ -286,8 +296,7 @@ input::placeholder {
 	width: 70px;
 	font-size: 12px;
 	height: 40px;
-	position: relative;
-	left: 500px;
+	
 }
 
 .supplierList {

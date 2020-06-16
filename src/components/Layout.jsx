@@ -59,7 +59,11 @@ const Layout = () => {
 			{showSideBar()}
 			<div className="otherPage">
 				<div className="topBar">
+					<div className="title">Green-Mile</div>
+					<div className="logOut">
 					<button className="logOutBtn" onClick={()=>logOut()}>Log Out</button>
+					</div>
+					
 				</div>
 				<div className="shopFloor">{showNavigation()}</div>
 			</div>
