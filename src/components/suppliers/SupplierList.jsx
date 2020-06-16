@@ -4,6 +4,7 @@ import UserForm from '../forms/UserForm'
 
 const SupplierList = () => {
 	const [view,setView] = useState(false)
+	
 	return (
 		<div>
 			<div className="searchnAdd">
@@ -12,7 +13,7 @@ const SupplierList = () => {
 					<input type="text" />
 				</div>
 				<button className="addSupplierbtn" onClick={()=>setView(true)}>Add Supplier</button>
-				{(view)?<UserForm setView={setView}/>:null}
+				{(view)?<UserForm setView={setView} view={view} showHideClass='modal display-block'/>:<UserForm showHideClass='modal display-none'/>}
 			</div>
 			<div className="supplierList">
 				<div className="pie">

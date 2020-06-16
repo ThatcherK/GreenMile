@@ -1,20 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext} from 'react';
 import { authContext } from '../context/Authenticate';
+import axios from 'axios';
 
 export default function SignIn(props) {
-	const { users, setLogIn } = useContext(authContext);
-	let logInMail = null;
-	let logInPassword = null;
+	const { isloggedIn,setLogIn,setRole,setToken } = useContext(authContext);
+	const [email,setEmail] = useState(null)
+	const [password,setPassword] = useState(null)
+
+	
 	const getEmail = (event) => {
-		logInMail = event.target.value;
+		setEmail(event.target.value);
 	};
 	const getPassword = (event) => {
-		logInPassword = event.target.value;
+		 setPassword(event.target.value);
 	};
-	const handleLogin = () => {
-		if (logInMail === users[0].email && logInPassword === users[0].password) {
-			setLogIn(true);
-		}
+	const data= {'email':email,'password':password}
+	
+	const checkUser= ()=>{
+			axios.post('http://127.0.0.1:5000/login',data)
+									 .then((response) =>{
+										 setLogIn(true)
+										 setRole(response.data.user['role'])
+										 setToken(response.data.auth_token)
+										 return response.data
+									 })
+									 .catch((err) => {
+										 return err
+										});
+
+	};
+
+	const handleLogin = (e) => {
+		e.preventDefault()
+		checkUser()
 	};
 	return (
 		<div className="signInContainer">
