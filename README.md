@@ -1,6 +1,6 @@
 
 # Green Mile
-A react-based logistics web app.
+A react-based logistics web app that optimises the usage rate of fleet by advising loaders on which route the fleet should follow and with which shipments
 
 ## Set Up
 * Clone the project \
