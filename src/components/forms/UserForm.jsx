@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import {getSelectedValue,makeInviteCode} from '../utilities/utilities'
 import axios from 'axios';
 import ReactModal from 'react-modal';
 
@@ -12,17 +11,13 @@ export default function UserForm(props) {
 	const getEmail = (e)=>{
 		setEmail(e.target.value)
 	}
-	const getRole = ()=>{
-		let value = getSelectedValue("roleDropdown")
-		setRole(value)
+	const getRole = (e)=>{
+		setRole(e.target.value)
 	}
-	const inviteField = document.getElementById("invite")
-	let invite_code = makeInviteCode(5)
-	
+	console.log(role_id)
 	const addUser = (e)=>{
 		e.preventDefault()
-		const data= {'email':email,'invite_code':inviteField.value,'role_id':Number(role_id)}
-		console.log(data)
+		const data= {'email':email,'role_id':Number(role_id)}
 		axios.post('http://127.0.0.1:5000/invited_user',data)
 									 .then((response) =>{
 										 return response.data
@@ -65,7 +60,6 @@ export default function UserForm(props) {
 			<div >
 			<form className=" modal-main">
 				<input type="text" name="email" placeholder="Email" onChange={getEmail}/><br/>
-				<input type="text" name="invite-code" id="invite" value={invite_code} readOnly={true} /><br/>
 				<select id="roleDropdown" onChange={getRole} >
 					<option value=""></option>
 					<option value={1} >Admin</option>

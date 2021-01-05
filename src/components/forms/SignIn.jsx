@@ -15,7 +15,7 @@ export default function SignIn(props) {
 		 setPassword(event.target.value);
 	};
 	const data= {'email':email,'password':password}
-	
+	console.log(data)
 	const checkUser= ()=>{
 			axios.post('http://127.0.0.1:5000/login',data)
 									 .then((response) =>{
