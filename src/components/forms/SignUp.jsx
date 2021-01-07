@@ -1,69 +1,62 @@
-import React, { useContext } from 'react';
-import { authContext } from '../context/Authenticate';
-import axios from 'axios';
+import React from 'react';
+import instance from '../config/axiosConfig';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 export default function SignUp(props) {
-	const {
-		setCode,
-		invite_code,
-		setName,
-		name,
-		setEmail,
-		email,
-		setNumber,
-		setPassword,
-		password,
-	} = useContext(authContext);
-
-	const getInput = (event) => {
-		switch (event.target.name) {
-			case 'name':
-				setName(event.target.value);
-				break;
-			case 'email':
-				setEmail(event.target.value);
-				break;
-			case 'number':
-				setNumber(Number(event.target.value));
-				break;
-			case 'password':
-				setPassword(event.target.value);
-				break;
-			case 'invite-code':
-				setCode(event.target.value);
-				break;
-			default:
-				return null;
+	const formik = useFormik({
+		initialValues: {
+			name: '',
+			email: '',
+			password: '',
+			confirmPassword: '',
+			inviteCode: ''
+		},
+		validationSchema: Yup.object({
+			name: Yup.string().required('Required!'),
+			email: Yup.string().email('Wrong email format').required('Required'),
+			password: Yup.string().min(8, 'Minimum 8 characters').required('Required!'),
+			confirmPassword: Yup.string()
+				.oneOf([Yup.ref('password')], 'Password is not a match')
+				.required('Required!'),
+			inviteCode: Yup.string().required('Required')
+		}),
+		onSubmit: (values, onSubmitProps) => {
+			handleSignUp();
+			onSubmitProps.resetForm()
 		}
-	};
+	});
 
-	const addUser = (e) => {
-		e.preventDefault();
-		const data = { name:name, email:email, password:password,invite_code:invite_code};
-		axios.post('http://127.0.0.1:5000/users', data)
-		.then((response) => { 
-			return response.data
-		})
-		.catch((err) =>{
-			return err
-		} );
+	const payload = {
+		name: formik.values.name,
+		email: formik.values.email,
+		password: formik.values.password,
+		invite_code: formik.values.inviteCode
+	};
+	const handleSignUp = () => {
+		instance.post('http://127.0.0.1:5000/users', payload)
+			.then((response) => {
+				return response.data
+			})
+			.catch((err) => {
+				return err
+			});
 		props.hideSignUp();
 	};
 
 	return (
-		<div className="signUpContainer">
+		<form className="signUpContainer" onSubmit={formik.handleSubmit}>
 			<form className="signUpForm">
-				<input type="text" name="name" placeholder="Name" onChange={getInput} />
-				<input type="text" name="email" placeholder="Email" onChange={getInput} />
-				<input type="text" name="number" placeholder="Phone Number" onChange={getInput} />
-				<input type="text" name="invite-code" placeholder="Invite code" onChange={getInput} />
-				<input type="password" name="password" placeholder="Password" onChange={getInput} />
-				<input type="password" name="confirm-password" placeholder="Confirm password" />
+				<input type="text" name="name" value={formik.values.name} placeholder="Name" onChange={formik.handleChange} />
+				<input type="text" name="email" value={formik.values.email} placeholder="Email" onChange={formik.handleChange} />
+				<input type="text" name="inviteCode" value={formik.values.inviteCode} placeholder="Invite code" onChange={formik.handleChange} />
+				<input type="password" name="password" value={formik.values.password} placeholder="Password" onChange={formik.handleChange} />
+				<input type="password" name="confirmPassword" value={formik.values.confirmPassword} placeholder="Confirm password" onChange={formik.handleChange} />
 				<br />
-				<button className="authBtn" onClick={addUser}>
+				<button className="authBtn" type="submit">
 					Sign Up
 				</button>
 			</form>
-		</div>
+		</form>
 	);
 }

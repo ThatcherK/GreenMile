@@ -1,10 +1,8 @@
-import React, { useState, useContext } from 'react';
-import axios from 'axios';
-import { authContext } from '../context/Authenticate';
+import React, { useState,} from 'react';
+import instance from '../config/axiosConfig';
 import ReactModal from 'react-modal';
 
 export default function PackageInfo(props) {
-	const { authToken } = useContext(authContext);
 	const [ productName, setName ] = useState(null);
 	const [ description, setDescription ] = useState(null);
 	const [ email, setEmail ] = useState(null);
@@ -34,9 +32,7 @@ export default function PackageInfo(props) {
 	const recipientData = { name: recipientName, address: address, email: email };
 	const addPackage = async (e) => {
 		e.preventDefault();
-		const results = await axios.post('http://127.0.0.1:5000/recipients', recipientData, {
-			headers: { Authorization: `Bearer ${authToken}` }
-		});
+		const results = await instance.post('http://127.0.0.1:5000/recipients', recipientData);
 
 		const packageData = {
 			name: productName,
@@ -45,10 +41,8 @@ export default function PackageInfo(props) {
 			recipient_id: results.data.recipient.id
 		};
 
-		return axios
-			.post('http://127.0.0.1:5000/packages', packageData, {
-				headers: { Authorization: `Bearer ${authToken}` }
-			})
+		return instance
+			.post('http://127.0.0.1:5000/packages/supplier', packageData)
 			.then((response) => response);
 	};
 

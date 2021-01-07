@@ -25,9 +25,6 @@ export default function SupplierDashboard() {
 		getPackages()
 	},[authToken])
 	
-	
-	// getPackages()
-	console.log(packages)
 	return (
 		<div className="adminDashboard">
 			<div className="side">

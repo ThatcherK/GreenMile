@@ -3,13 +3,15 @@ import SignIn from './forms/SignIn';
 import '../App.css';
 import SignUp from './forms/SignUp';
 import { authContext } from './context/Authenticate';
-
 import { Redirect } from 'react-router-dom';
 
 export default function WelcomePage() {
 	const [ show, setShow ] = useState(false);
 	const { isloggedIn } = useContext(authContext);
-	if (isloggedIn) {
+	const localStorageToken = localStorage.getItem('token')
+
+	if (isloggedIn || localStorageToken) {
+		console.log("redirecting")
 		return <Redirect to="/" />;
 	}
 

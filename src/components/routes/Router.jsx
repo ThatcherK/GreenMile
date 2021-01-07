@@ -8,7 +8,6 @@ export default function Router() {
 	return (
 		<Switch>
 			<Route exact path="/login" component={WelcomePage} />
-		
 			<PrivateRoute path="/" component={Layout} />
 		</Switch>
 	);

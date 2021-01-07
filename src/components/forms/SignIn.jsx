@@ -1,48 +1,50 @@
-import React, { useState, useContext} from 'react';
+import React, { useContext } from 'react';
 import { authContext } from '../context/Authenticate';
-import axios from 'axios';
+import instance from '../config/axiosConfig';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 export default function SignIn(props) {
-	const { isloggedIn,setLogIn,setRole,setToken } = useContext(authContext);
-	const [email,setEmail] = useState(null)
-	const [password,setPassword] = useState(null)
+	const { setLogIn, setToken } = useContext(authContext);
 
-	
-	const getEmail = (event) => {
-		setEmail(event.target.value);
-	};
-	const getPassword = (event) => {
-		 setPassword(event.target.value);
-	};
-	const data= {'email':email,'password':password}
-	console.log(data)
-	const checkUser= ()=>{
-			axios.post('http://127.0.0.1:5000/login',data)
-									 .then((response) =>{
-										 setLogIn(true)
-										 setRole(response.data.user['role'])
-										 setToken(response.data.auth_token)
-										 return response.data
-									 })
-									 .catch((err) => {
-										 return err
-										});
+	const formik = useFormik({
+		initialValues: {
+			email: '',
+			password: '',
+		},
+		validationSchema: Yup.object({
+			email: Yup.string().email('Wrong email format').required('Required'),
+			password: Yup.string().min(8, 'Minimum 8 characters').required('Required!'),
+		}),
+		onSubmit: (values, onSubmitProps) => {
+			handleLogin();
+			onSubmitProps.resetForm()
+		}
+	});
 
-	};
+	const payload = { 'email': formik.values.email, 'password': formik.values.password }
 
-	const handleLogin = (e) => {
-		e.preventDefault()
-		checkUser()
+	const handleLogin = () => {
+		instance.post('http://127.0.0.1:5000/login', payload)
+			.then((response) => {
+				setLogIn(true)
+				setToken(response.data.auth_token)
+				localStorage.setItem('token', response.data.auth_token)
+				localStorage.setItem('role', response.data.user.role)
+			})
+			.catch((err) => {
+				return err
+			});
 	};
 	return (
 		<div className="signInContainer">
-			<form className="signInForm">
-				<input type="text" name="email" placeholder="Email" onChange={getEmail} />
+			<form className="signInForm" onSubmit={formik.handleSubmit}>
+				<input type="text" name="email" value={formik.values.email} placeholder="Email" onChange={formik.handleChange} />
 
-				<input type="password" name="password" placeholder="Password" onChange={getPassword} />
+				<input type="password" name="password" value={formik.values.password} placeholder="Password" onChange={formik.handleChange} />
 
 				<br />
-				<button className="authBtn" onClick={handleLogin}>
+				<button className="authBtn" type="submit" onClick={handleLogin}>
 					Log In
 				</button>
 				<br />

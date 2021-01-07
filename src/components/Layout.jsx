@@ -12,9 +12,14 @@ import HubManagerSideBar from './hubManagers/HubManagerSideBar';
 import LoaderSideBar from './loaders/LoaderSideBar';
 
 const Layout = () => {
-	const { isloggedIn, role,setLogIn } = useContext(authContext);
-	const showSideBar = () => {
-		if (isloggedIn) {
+	const { isloggedIn,setLogIn } = useContext(authContext);
+	const localStorageToken = localStorage.getItem('token')
+	const role = localStorage.getItem('role')
+
+	const showSideBar = (role) => {
+		console.log("In layout")
+		if (isloggedIn || localStorageToken) {
+			console.log(role)
 			switch (role) {
 				case 'admin':
 					return <SideBar />;
@@ -31,7 +36,7 @@ const Layout = () => {
 			}
 		}
 	};
-	const showNavigation = () => {
+	const showNavigation = (role) => {
 		switch (role) {
 			case 'admin':
 				return <AdminNav />;
@@ -49,19 +54,19 @@ const Layout = () => {
 	};
 
 	const logOut =()=>{
-		
+		localStorage.clear()
 		setLogIn(false);
 		return <Redirect to="/login"/>
 	}
 
 	return (
 		<div className="dashboard">
-			{showSideBar()}
+			{showSideBar(role)}
 			<div className="otherPage">
 				<div className="topBar">
 					<button className="logOutBtn" onClick={()=>logOut()}>Log Out</button>
 				</div>
-				<div className="shopFloor">{showNavigation()}</div>
+				<div className="shopFloor">{showNavigation(role)}</div>
 			</div>
 		</div>
 	);
