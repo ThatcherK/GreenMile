@@ -34,7 +34,7 @@ export default function SignUp(props) {
 		invite_code: formik.values.inviteCode
 	};
 	const handleSignUp = () => {
-		instance.post('http://127.0.0.1:5000/users', payload)
+		instance.post('/users', payload)
 			.then((response) => {
 				return response.data
 			})

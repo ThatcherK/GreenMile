@@ -1,32 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect} from 'react'
 import instance from '../config/axiosConfig';
 import ReactModal from 'react-modal';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-export default function UserForm(props) {
-
+export default function AssignLoaderForm(props) {
+	const [loaders, setLoaders] = useState([])
 	const formik = useFormik({
 		initialValues: {
-			email: '',
-			role_id: '',
+			loader_id: ''
 		},
 		validationSchema: Yup.object({
-			email: Yup.string().email('Wrong email format').required('Required'),
-			role_id: Yup.string().required('Required!'),
+			loader_id: Yup.string().required('Required!'),
 		}),
 		onSubmit: (values, onSubmitProps) => {
-			handleInvite();
+			handleAssignment();
 			onSubmitProps.resetForm()
 		}
 	});
 
-	const payload = { email: formik.values.email, role_id: Number(formik.values.role_id) }
+	const payload = { loader_id: Number(formik.values.loader_id) }
 
-	const handleInvite = () => {
-		instance.post('/invited_user', payload)
+	const handleAssignment = () => {
+		instance.post(`/packages/hub/${props.id}`, payload)
 			.then((response) => {
-				return response.data
+				console.log(response.data)
 			})
 			.catch((err) => {
 				return err
@@ -35,6 +33,10 @@ export default function UserForm(props) {
 
 	useEffect(() => {
 		ReactModal.setAppElement('body')
+		instance.get('/users').then((response) => {
+			const users = response.data.users
+			setLoaders(users.filter((user) => user.role === 'packager'))
+		},[])
 	})
 
 	return (
@@ -69,12 +71,11 @@ export default function UserForm(props) {
 		>
 			<div >
 				<form className=" modal-main" onSubmit={formik.handleSubmit}>
-					<input type="text" name="email" value={formik.values.email} placeholder="Email" onChange={formik.handleChange} /><br />
-					<select id="roleDropdown" name="role_id" value={formik.values.role_id} onChange={formik.handleChange} >
-						<option value={1} >Admin</option>
-						<option value={2}>Supplier</option>
-						<option value={3}>Hub manager</option>
-						<option value={4}>Loader</option>
+					<select id="roleDropdown" name="loader_id" value={formik.values.loader_id} onChange={formik.handleChange} >
+						{loaders.map((loader) => (
+							<option value={loader.id} >{loader.name}</option>
+						)
+						)}
 					</select>
 					<br />
 					<button className="authBtn" type="submit">Save</button>
@@ -83,5 +84,5 @@ export default function UserForm(props) {
 			</div>
 		</ReactModal>
 
-	);
+	)
 }

@@ -32,7 +32,7 @@ export default function PackageInfo(props) {
 	const recipientData = { name: recipientName, address: address, email: email };
 	const addPackage = async (e) => {
 		e.preventDefault();
-		const results = await instance.post('http://127.0.0.1:5000/recipients', recipientData);
+		const results = await instance.post('/recipients', recipientData);
 
 		const packageData = {
 			name: productName,
@@ -42,7 +42,7 @@ export default function PackageInfo(props) {
 		};
 
 		return instance
-			.post('http://127.0.0.1:5000/packages/supplier', packageData)
+			.post('/packages/supplier', packageData)
 			.then((response) => response);
 	};
 

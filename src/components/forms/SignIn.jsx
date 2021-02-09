@@ -25,7 +25,7 @@ export default function SignIn(props) {
 	const payload = { 'email': formik.values.email, 'password': formik.values.password }
 
 	const handleLogin = () => {
-		instance.post('http://127.0.0.1:5000/login', payload)
+		instance.post('/login', payload)
 			.then((response) => {
 				setLogIn(true)
 				setToken(response.data.auth_token)
