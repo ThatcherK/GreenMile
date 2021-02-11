@@ -10,10 +10,10 @@ import SupplierDashboard from '../suppliers/SupplierDashboard';
 export default function SupplierNav() {
 	return (
 		<Switch>
-            <PrivateRoute exact path="/" component={SupplierDashboard}/>
+      <PrivateRoute exact path="/" component={SupplierDashboard}/>
 			<PrivateRoute exact path="/packages" component={Packages} />
 			<PrivateRoute exact path="/invoice" component={SupplierInvoice} />
-		
+
 		</Switch>
 	);
 

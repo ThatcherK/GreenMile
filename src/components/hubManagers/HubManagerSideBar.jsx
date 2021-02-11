@@ -18,11 +18,11 @@ const HubManagerSideBar =() =>{
                 <div>
                     <Link to="/packages">Packages</Link>
                 </div>
-            
+
                 <div>
                     <Link to="/invoice">Invoices</Link>
                 </div>
-                
+
             </div>
         </div>
     </div>
