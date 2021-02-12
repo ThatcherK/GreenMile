@@ -1,18 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, FunctionComponent } from 'react';
 import { authContext } from '../context/Authenticate';
 import instance from '../config/axiosConfig';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { string } from 'yup/lib/locale';
 
-export default function SignIn(props) {
+interface IFormValues{
+  email: string,
+  password: string
+}
+const  SignIn:FunctionComponent = (props)=> {
 	const { setLogIn, setToken } = useContext(authContext);
 
 	const formik = useFormik({
-		initialValues: {
+		initialValues : {
 			email: '',
 			password: '',
 		},
-		validationSchema: Yup.object({
+		validationSchema: Yup.object<>({
 			email: Yup.string().email('Wrong email format').required('Required'),
 			password: Yup.string().min(8, 'Minimum 8 characters').required('Required!'),
 		}),
