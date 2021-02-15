@@ -4,7 +4,11 @@ import instance from '../config/axiosConfig';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const SignIn: FunctionComponent = (props) => {
+type SigninProps = {
+  showSignUp: () => void;
+};
+
+const SignIn: FunctionComponent<SigninProps> = ({ showSignUp }) => {
   const { setLogIn, setToken } = useContext(authContext);
 
   const formik = useFormik({
@@ -12,7 +16,7 @@ const SignIn: FunctionComponent = (props) => {
       email: '',
       password: '',
     },
-    validationSchema: Yup.object.I({
+    validationSchema: Yup.object({
       email: Yup.string().email('Wrong email format').required('Required'),
       password: Yup.string()
         .min(8, 'Minimum 8 characters')
@@ -68,7 +72,7 @@ const SignIn: FunctionComponent = (props) => {
         <br />
         <label>Not yet a user?</label>
         <br />
-        <button className="signUpBtn" onClick={props.showSignUp}>
+        <button className="signUpBtn" onClick={showSignUp}>
           Sign Up
         </button>
       </form>
