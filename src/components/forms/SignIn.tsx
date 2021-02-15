@@ -48,6 +48,8 @@ const SignIn: FunctionComponent<SigninProps> = ({ showSignUp }) => {
         return err;
       });
   };
+  console.log('testing');
+
   return (
     <div className="signInContainer">
       <form className="signInForm" onSubmit={formik.handleSubmit}>
