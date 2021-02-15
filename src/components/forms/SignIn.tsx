@@ -8,14 +8,16 @@ type SigninProps = {
   showSignUp: () => void;
 };
 
+type SignInFormValues = {
+  email: string;
+  password: string;
+};
+
 const SignIn: FunctionComponent<SigninProps> = ({ showSignUp }) => {
   const { setLogIn, setToken } = useContext(authContext);
-
+  const initialValues: SignInFormValues = { email: '', password: '' };
   const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
+    initialValues,
     validationSchema: Yup.object({
       email: Yup.string().email('Wrong email format').required('Required'),
       password: Yup.string()
